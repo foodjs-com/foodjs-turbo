@@ -1,9 +1,9 @@
 ---
 - hosts: all
   gather_facts: false
-  become: yes
+  # become: yes # do not use root
   tasks:
-    - name: Read-write git checkout from github
+    - name: git checkout
       ansible.builtin.git:
-        repo: git@github.com:mylogin/hello.git
-        dest: /home/mylogin/hello
+        repo: https://github.com/foodjs-com/foodjs-turbo.git
+        dest: $HOME/foodjs-com/foodjs-turbo
