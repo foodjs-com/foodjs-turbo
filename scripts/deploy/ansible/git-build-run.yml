@@ -11,7 +11,7 @@
     - name: pnpm install
       shell: "cd $HOME/foodjs-com/foodjs-turbo && pnpm i"
 
-    - name: copy Caddyfile
+    - name: copy .env.production
       ansible.builtin.copy:
         src: ../../../.env.production
         dest: $HOME/foodjs-com/foodjs-turbo/.env
