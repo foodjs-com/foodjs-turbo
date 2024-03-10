@@ -19,5 +19,8 @@
     - name: pnpm build
       shell: "cd $HOME/foodjs-com/foodjs-turbo && pnpm build"
 
-    - name: pm2 restart ecosystem.config.cjs --update-env
-      shell: cd $HOME/foodjs-com/foodjs-turbo/www-astro-svelte; pm2 restart ./ecosystem.config.cjs --update-env && pm2 save
+    - name: pm2 auth-astro-svelte
+      shell: cd $HOME/foodjs-com/foodjs-turbo/apps/auth-astro-svelte; pm2 restart ./ecosystem.config.cjs --update-env && pm2 save
+
+    - name: pm2 www-astro-svelte
+      shell: cd $HOME/foodjs-com/foodjs-turbo/apps/www-astro-svelte; pm2 restart ./ecosystem.config.cjs --update-env && pm2 save
