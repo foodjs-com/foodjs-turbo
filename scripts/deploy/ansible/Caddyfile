@@ -36,11 +36,11 @@
 #         file_server
 # }
 
-auth.foodjs.com {
+http://auth.foodjs.com {
         reverse_proxy localhost:4322
 }
 
-*.yourdomain.com {
+http:// {
         reverse_proxy localhost:4333
 }
 

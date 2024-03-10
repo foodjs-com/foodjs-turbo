@@ -1,4 +1,4 @@
-ansible-playbook -i "$CADDY_HOST_IP," -u ubuntu --private-key ./key.pem ./git-build-run.yml -v
+# ansible-playbook -i "$CADDY_HOST_IP," -u ubuntu --private-key ./key.pem ./git-build-run.yml -v
 ansible-playbook -i "$CADDY_HOST_IP," -u ubuntu --private-key ./key.pem ./caddy-role.yml -v
 
 # docker pull ansible/ansible

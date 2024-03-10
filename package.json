@@ -10,7 +10,8 @@
 	},
 	"devDependencies": {
 		"turbo": "latest",
-		"dotenv-cli": "latest"
+		"dotenv-cli": "latest",
+		"dotenv": "latest"
 	},
 	"packageManager": "pnpm@8.9.0",
 	"engines": {
