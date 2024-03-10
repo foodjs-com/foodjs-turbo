@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Read-write git checkout from github
+      ansible.builtin.git:
+        repo: git@github.com:mylogin/hello.git
+        dest: /home/mylogin/hello

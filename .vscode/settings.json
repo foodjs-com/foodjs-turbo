@@ -1,0 +1,20 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "editor.formatOnSave": true,
+  // "javascript.preferences.importModuleSpecifier": "project-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true, // filter: !**/node_modules/**
+  // supabase
+  "deno.enablePaths": [
+    "apps/supabase-local-dev/supabase/functions"
+  ],
+  "deno.lint": true,
+  "deno.unstable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
+}

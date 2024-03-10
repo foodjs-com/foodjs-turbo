@@ -1,0 +1,21 @@
+{
+	"name": "astro-sec",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev --port=4333 --host=www.mylocal.com --open",
+		"start": "HOST=0.0.0.0 PORT=4333 node ./dist/server/entry.mjs",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.5.5",
+		"@astrojs/node": "^8.2.1",
+		"@astrojs/svelte": "^5.0.3",
+		"@supabase/supabase-js": "^2.39.7",
+		"astro": "^4.4.4",
+		"svelte": "^5.0.0-next.68",
+		"typescript": "^5.3.3"
+	}
+}

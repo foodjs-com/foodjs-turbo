@@ -1,0 +1,36 @@
+---
+- hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: copy Caddyfile
+      ansible.builtin.copy:
+        src: ./Caddyfile
+        dest: /etc/caddy/Caddyfile
+
+    - name: reload caddy
+      command: systemctl reload caddy
+    
+    # - name: status caddy
+    #   command: systemctl status caddy
+
+# - name: mkdir -p $HOME/ANSIBLE_DEPLOY && rm -rf $HOME/ANSIBLE_DEPLOY/admin-sveltekit.zip
+#   shell: mkdir -p $HOME/ANSIBLE_DEPLOY && rm -rf $HOME/ANSIBLE_DEPLOY/admin-sveltekit.zip
+#   ignore_errors: yes
+
+# - name: copy admin-sveltekit.zip to $HOME/ANSIBLE_DEPLOY
+#   ansible.builtin.copy:
+#     src: ../../../admin-sveltekit.zip
+#     dest: $HOME/ANSIBLE_DEPLOY/admin-sveltekit.zip
+
+# - name: Extract $HOME/ANSIBLE_DEPLOY/admin-sveltekit.zip into /admin-sveltekit
+#   shell: unzip -o -q $HOME/ANSIBLE_DEPLOY/admin-sveltekit.zip -d $HOME/ANSIBLE_DEPLOY/admin-sveltekit
+
+# # - name: pnpm install for admin-sveltekit
+# #   shell: cd $HOME/ANSIBLE_DEPLOY/admin-sveltekit/build; pnpm i
+
+# - name: pm2 restart ecosystem.config.cjs --update-env
+#   shell: cd $HOME/ANSIBLE_DEPLOY/admin-sveltekit; pm2 restart ./ecosystem.config.cjs --update-env && pm2 save
+
+# - name: pm2 restart admin-sveltekit --update-env
+#   shell: cd $HOME/ANSIBLE_DEPLOY/admin-sveltekit; pm2 restart admin-sveltekit --update-env && pm2 save

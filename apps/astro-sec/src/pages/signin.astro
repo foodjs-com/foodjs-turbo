@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import isDev from "../lib/isDev";
+
+const { cookies, redirect, request } = Astro;
+
+const accessToken = cookies.get("sb-access-token");
+const refreshToken = cookies.get("sb-refresh-token");
+
+if (accessToken && refreshToken) {
+	return redirect("/dashboard");
+}
+
+const host = request.headers.get("host");
+console.log("host:");
+console.log(host);
+---
+
+<Layout title="Sign in">
+	<h1>Sign in isDev:{isDev}</h1>
+	<p>New here? <a href="/register">Create an account</a></p>
+	<form action="/api/auth/signin" method="post">
+		<label for="email" for="email">Email</label>
+		<input type="email" name="email" id="email" />
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password" />
+		<button type="submit">Login</button>
+		<button value="google" name="provider" type="submit">
+			Sign in with google
+		</button>
+	</form>
+
+	{
+		isDev ? (
+			<div>
+				<p>Dev only:</p>
+				<a href="http://localhost:4322/redirector">/redirector</a>
+			</div>
+		) : (
+			<div>
+				<p>Prod only:</p>
+				<a href="https://manuth4322.foodjs.com/redirector">/redirector</a>
+			</div>
+		)
+	}
+</Layout>

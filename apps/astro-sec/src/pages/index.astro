@@ -1,0 +1,49 @@
+---
+// Component Imports
+import Counter from "../components/Counter.svelte";
+const hello = import.meta.env.HELLO;
+const piblic = import.meta.env.PUBLIC_ANYBODY;
+const isProd = import.meta.env.PROD;
+const isDev = import.meta.env.DEV;
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<style>
+			html,
+			body {
+				font-family: system-ui;
+				margin: 0;
+			}
+			body {
+				padding: 2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="/signin">signin</a>
+		<br />
+		<br />
+		hello: {hello}
+		<br />
+		piblic: {piblic}
+		<br />
+		isProd: {isProd}
+		<br />
+		isDev: {isDev}
+		<br />
+
+		<main>
+			<Counter client:visible>
+				<h1>Hello, Svelte!</h1>
+			</Counter>
+		</main>
+	</body>
+</html>

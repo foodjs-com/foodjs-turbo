@@ -1,0 +1,21 @@
+{
+	"globalDotEnv": [".env", ".env.development", ".env.production"],
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": [".svelte-kit/**"]
+		},
+		"lint": {},
+		"supa_start": {
+			"cache": false
+		},
+		"supa_stop": {
+			"cache": false
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		}
+	}
+}

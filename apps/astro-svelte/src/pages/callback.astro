@@ -1,0 +1,47 @@
+---
+import { supabase } from "../lib/supabase";
+const { url, cookies, redirect } = Astro;
+
+const authCode = url.searchParams.get("code");
+
+if (!authCode) {
+	return new Response("No code provided", { status: 400 });
+}
+
+const { data, error } = await supabase.auth.exchangeCodeForSession(authCode);
+
+if (error) {
+	return new Response(error.message, { status: 500 });
+}
+
+const { access_token, refresh_token } = data.session;
+
+cookies.set("sb-access-token", access_token, {
+	path: "/",
+});
+cookies.set("sb-refresh-token", refresh_token, {
+	path: "/",
+});
+
+let lastReferer = cookies.get("last-referer") || null;
+console.log("lastReferer", lastReferer);
+
+let redirectUrl = "/dashboard";
+if (lastReferer) {
+	cookies.delete("last-referer", { path: "/" });
+	redirectUrl = `${lastReferer.value}api/auth/setcookies?access_token=${access_token}&refresh_token=${refresh_token}`;
+	// return redirect(
+	// 	`${lastReferer.value}api/auth/setcookies?access_token=${access_token}&refresh_token=${refresh_token}`
+	// );
+	// return new Response(`${lastReferer.value}api/auth/setcookies?access_token=${access_token}&refresh_token=${refresh_token}`, { status: 200 })
+}
+---
+
+<br />
+<a id="redirector" href={redirectUrl}>Click here</a>
+<br />
+<div data-redirectUrl={redirectUrl}></div>
+
+<script type="module">
+	document.getElementById("redirector").click();
+</script>
