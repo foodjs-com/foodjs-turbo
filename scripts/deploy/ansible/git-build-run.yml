@@ -1,0 +1,23 @@
+---
+- hosts: all
+  gather_facts: false
+  # become: yes # do not use root
+  tasks:
+    - name: git checkout
+      ansible.builtin.git:
+        repo: https://github.com/foodjs-com/foodjs-turbo.git
+        dest: $HOME/foodjs-com/foodjs-turbo
+
+    - name: pnpm install
+      shell: "cd $HOME/foodjs-com/foodjs-turbo && pnpm i"
+
+    - name: copy Caddyfile
+      ansible.builtin.copy:
+        src: ../../../.env.production
+        dest: $HOME/foodjs-com/foodjs-turbo/.env
+
+    - name: pnpm build
+      shell: "cd $HOME/foodjs-com/foodjs-turbo && pnpm build"
+
+    - name: pm2 restart ecosystem.config.cjs --update-env
+      shell: cd $HOME/foodjs-com/foodjs-turbo/www-astro-svelte; pm2 restart ./ecosystem.config.cjs --update-env && pm2 save

@@ -1,5 +1,6 @@
 # ========================================================================
 # ubuntu 22.04 commands to setup server
+# firewall allow 80, 443 ports for caddy
 sudo apt update
 # ========================================================================
 # install caddy

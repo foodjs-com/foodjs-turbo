@@ -1,9 +1,0 @@
----
-- hosts: all
-  gather_facts: false
-  # become: yes # do not use root
-  tasks:
-    - name: git checkout
-      ansible.builtin.git:
-        repo: https://github.com/foodjs-com/foodjs-turbo.git
-        dest: $HOME/foodjs-com/foodjs-turbo
