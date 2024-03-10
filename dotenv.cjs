@@ -6,7 +6,8 @@ function calcPath(relativePath) {
     return path.join(__dirname, relativePath);
 }
 
-export const envConfig = dotenv.parse(fs.readFileSync(calcPath('./.env')));
+const envConfig = dotenv.parse(fs.readFileSync(calcPath('./.env')));
+module.exports = { envConfig };
 
 // console.log('envConfig');
 // console.log(JSON.stringify(envConfig, null, 2));
