@@ -1,4 +1,4 @@
-import { envConfig } from '../../dotenv.cjs';
+const { envConfig } = require('../../dotenv.cjs');
 
 module.exports = {
     apps: [

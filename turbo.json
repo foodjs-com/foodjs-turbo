@@ -4,7 +4,7 @@
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": [".svelte-kit/**"]
+			"outputs": [".svelte-kit/**", "dist/**"]
 		},
 		"lint": {},
 		"supa_start": {
