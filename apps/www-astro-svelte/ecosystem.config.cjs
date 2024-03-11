@@ -8,7 +8,7 @@ module.exports = {
             // cron_restart: "0 */6 * * *", // every 6 hours
             env: Object.assign({}, envConfig, {
                 "HOST": "0.0.0.0",
-                "PORT": "4333"
+                "PORT": "6333"
             }),
         },
     ],

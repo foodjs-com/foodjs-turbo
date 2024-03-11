@@ -3,8 +3,8 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "astro dev --port=4333 --open",
-		"start": "HOST=0.0.0.0 PORT=4333 node ./dist/server/entry.mjs",
+		"dev": "astro dev --port=6333 --open",
+		"start": "HOST=0.0.0.0 PORT=6333 node ./dist/server/entry.mjs",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro"

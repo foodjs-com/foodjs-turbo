@@ -41,7 +41,7 @@ http://auth.foodjs.com {
 }
 
 http:// {
-        reverse_proxy localhost:4333
+        reverse_proxy localhost:6333
 }
 
 # :80 {
