@@ -26,19 +26,35 @@ if (error) {
 
 	return redirect("/signin");
 }
-
+const user = data?.user;
 const email = data?.user?.email;
 ---
 
 <Layout title="dashboard">
-	<h1>Welcome {email}</h1>
+	<h1>WWW Welcome {email}</h1>
+	<details>
+		<summary>User Details</summary>
+		<pre>{JSON.stringify(user, null, "\t")}</pre>
+	</details>
+	<hr />
+	<button id="client-side-user">client-side-user</button>
 	<hr />
 	<h1>The current URL is: {Astro.url}</h1>
 	<h1>The current URL pathname is: {Astro.url.pathname}</h1>
 	<h1>The current URL origin is: {Astro.url.origin}</h1>
 	<hr />
 	<p>We are happy to see you here</p>
+
 	<form action="/api/auth/signout">
 		<button type="submit">Sign out</button>
 	</form>
+
+	<script>
+		import { getSession } from "../lib/supabase";
+		const btn = document.getElementById("client-side-user");
+		btn?.addEventListener("click", async () => {
+			const data = await getSession();
+			console.log(data);
+		});
+	</script>
 </Layout>
