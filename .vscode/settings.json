@@ -10,7 +10,7 @@
   "typescript.tsserver.experimental.enableProjectDiagnostics": true, // filter: !**/node_modules/**
   // supabase
   "deno.enablePaths": [
-    "apps/supabase-local-dev/supabase/functions"
+    "packages/supabase-local/supabase/functions"
   ],
   "deno.lint": true,
   "deno.unstable": true,

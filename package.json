@@ -2,16 +2,15 @@
 	"private": true,
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
-		"build": "dotenv -- turbo run build",
-		"deploy": "dotenv -- bash -c 'cd ./scripts/deploy/ansible/ && ./deploy.sh'",
-		"supa_stop": "dotenv -- turbo run supa_stop",
 		"dev": "dotenv -- turbo run supa_start && turbo run dev",
-		"convert_to_yarn": "echo 'CMD: npx @turbo/workspaces convert https://twitter.com/anthonysheww/status/1736045947111817631'"
+		"build": "dotenv -- turbo run build",
+		"supa_stop": "dotenv -- turbo run supa_stop",
+		"deploy": "dotenv -- bash -c 'cd ./scripts/deploy/ansible/ && ./deploy.sh'"
 	},
 	"devDependencies": {
-		"turbo": "latest",
-		"dotenv-cli": "latest",
-		"dotenv": "latest"
+		"turbo": "1.12.5",
+		"dotenv-cli": "7.4.1",
+		"dotenv": "16.4.5"
 	},
 	"packageManager": "pnpm@8.9.0",
 	"engines": {
