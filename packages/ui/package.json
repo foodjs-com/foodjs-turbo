@@ -6,7 +6,7 @@
 		"store-class": "workspace:*",
 		"idb-keyval": "^6.2.1",
 		"svelte": "^5.0.0-next.52",
-		"typescript": "^5.0.0",
+		"typescript": "^5.3.3",
 		"esm-env": "1.0.0"
 	}
 }
