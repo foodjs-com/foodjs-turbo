@@ -2,6 +2,8 @@
 	"private": true,
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
+		"reset_local_db": "dotenv -- pnpx supabase db reset --workdir=./packages/supabase-local",
+		"update_supa_types": "dotenv -- pnpx supabase gen types typescript --local --workdir=./packages/supabase-local > ./packages/supabase-local/supabase-types.ts",
 		"dev": "dotenv -- turbo run supa_start && turbo run dev",
 		"build": "dotenv -- turbo run build",
 		"supa_stop": "dotenv -- turbo run supa_stop",

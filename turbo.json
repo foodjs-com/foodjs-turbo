@@ -1,15 +1,9 @@
 {
-	"globalDotEnv": [
-		".env",
-		".env.development",
-		".env.production"
-	],
+	"globalDotEnv": [".env", ".env.development", ".env.production"],
 	"$schema": "https://turbo.build/schema.json",
 	"pipeline": {
 		"build": {
-			"dependsOn": [
-				"^build"
-			],
+			"dependsOn": ["^build"],
 			"outputs": [
 				".svelte-kit/**", // SvelteKit
 				"dist/**" // astro

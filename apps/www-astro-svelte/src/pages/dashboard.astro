@@ -28,10 +28,34 @@ if (error) {
 }
 const user = data?.user;
 const email = data?.user?.email;
+
+async function getRPC() {
+	// const { data, error } = await supabase.rpc("nearby_restaurants", {
+	// 	lat: 40.807313,
+	// 	long: -73.946713,
+	// });
+	// const { data, error } = await supabase.rpc("restaurants_in_view", {
+	// 	min_lat: 40.807,
+	// 	min_long: -73.946,
+	// 	max_lat: 40.808,
+	// 	max_long: -73.945,
+	// });
+	const { data, error } = await supabase.rpc("restaurants_delivering_to", {
+		lat: 2,
+		long: 2,
+	});
+	return data;
+}
+
+const list = await getRPC();
 ---
 
 <Layout title="dashboard">
 	<h1>WWW Welcome {email}</h1>
+	<details open>
+		<summary>LIST</summary>
+		<pre>{JSON.stringify(list, null, "\t")}</pre>
+	</details>
 	<details>
 		<summary>User Details</summary>
 		<pre>{JSON.stringify(user, null, "\t")}</pre>
